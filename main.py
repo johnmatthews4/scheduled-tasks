@@ -38,7 +38,7 @@ for index, row in data.iterrows():
             template = file.read()
         personal_birthday_message = template.replace("[NAME]", NAME)
         # send the personal birthday message
-        with smtplib.SMTP("smtp.gmail.com") as connection:
+        with smtplib.SMTP("smtp.gmail.com", 587) as connection:
             connection.starttls()
             connection.login(user=MY_EMAIL, password=MY_PASSWORD)
             connection.sendmail(
