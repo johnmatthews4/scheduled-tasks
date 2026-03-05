@@ -33,7 +33,7 @@ for index, row in data.iterrows():
         # open a random birthday message template
         letter_no = random.choice(range(1,4))
         print(f"{letter_no}. {NAME}. {EMAIL}")
-        with open(f"letter_{letter_no}.txt", "r") as file:
+        with open(f"letter_templates/letter_{letter_no}.txt", "r") as file:
             # get letter template
             template = file.read()
         personal_birthday_message = template.replace("[NAME]", NAME)
