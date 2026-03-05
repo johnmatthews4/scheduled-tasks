@@ -1,4 +1,5 @@
 ##################### Hard Starting Project ######################
+import os
 from datetime import datetime
 import pandas as pd
 import smtplib
@@ -16,8 +17,8 @@ import random
 #HINT 3: Then you could compare and see if today's month/day matches one of the keys in birthday_dict like this:
 # if (today_month, today_day) in birthdays_dict:
 
-MY_EMAIL = "jcmatthews54@gmail.com"
-PASSWORD = "lmdn yhps qcbs lbrx"
+MY_EMAIL = os.environ.get("MY_EMAIL")
+PASSWORD = os.environ.get("MY_PASSWORD")
 data = pd.read_csv("birthdays.csv")
 
 # iterate over the rows in data
@@ -41,7 +42,7 @@ for index, row in data.iterrows():
             connection.starttls()
             connection.login(user=MY_EMAIL, password=PASSWORD)
             connection.sendmail(
-                from_addr="jcmatthews54@gmail.com",
+                from_addr=MY_EMAIL,
                 to_addrs=EMAIL,
                 msg=f"Subject:Happy Birthday\n\n{personal_birthday_message}"
             )
