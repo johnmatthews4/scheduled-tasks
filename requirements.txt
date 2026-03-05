@@ -1,1 +1,6 @@
-pandas os datetime smtplib random requests
+pandas 
+os 
+datetime 
+smtplib 
+random 
+requests
